@@ -13,7 +13,9 @@
 		0FDE7E5A2BC13721002062DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FDE7E592BC13721002062DB /* Assets.xcassets */; };
 		0FDE7E5D2BC13721002062DB /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0FDE7E5C2BC13721002062DB /* Base */; };
 		0FDE7E682BC13B46002062DB /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE7E672BC13B46002062DB /* Model.swift */; };
-		214AFC4C1931AC9389ADEFD3 /* Pods_APIMarvel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A3B74300E41FECDDDA561C /* Pods_APIMarvel.framework */; };
+		0FDE7E6C2BC147D7002062DB /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE7E6B2BC147D7002062DB /* Cell.swift */; };
+		0FDE7E6E2BC14BB3002062DB /* ConfigureAPIMarvel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE7E6D2BC14BB3002062DB /* ConfigureAPIMarvel.swift */; };
+		0FF8AF752BC5777C004A5A63 /* Pods_APIMarvel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A3B74300E41FECDDDA561C /* Pods_APIMarvel.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		0FDE7E5C2BC13721002062DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0FDE7E5E2BC13721002062DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FDE7E672BC13B46002062DB /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		0FDE7E6B2BC147D7002062DB /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		0FDE7E6D2BC14BB3002062DB /* ConfigureAPIMarvel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureAPIMarvel.swift; sourceTree = "<group>"; };
+		0FF8AF782BC57785004A5A63 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FF8AF7B2BC57789004A5A63 /* Alamofire.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = Alamofire.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		28FC3699060893B9717C8A2B /* Pods-APIMarvel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIMarvel.debug.xcconfig"; path = "Target Support Files/Pods-APIMarvel/Pods-APIMarvel.debug.xcconfig"; sourceTree = "<group>"; };
 		45A3B74300E41FECDDDA561C /* Pods_APIMarvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APIMarvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -35,7 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				214AFC4C1931AC9389ADEFD3 /* Pods_APIMarvel.framework in Frameworks */,
+				0FF8AF752BC5777C004A5A63 /* Pods_APIMarvel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +90,8 @@
 			children = (
 				0FDE7E542BC13720002062DB /* ViewController.swift */,
 				0FDE7E672BC13B46002062DB /* Model.swift */,
+				0FDE7E6B2BC147D7002062DB /* Cell.swift */,
+				0FDE7E6D2BC14BB3002062DB /* ConfigureAPIMarvel.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -110,6 +118,8 @@
 		DAA9C31A51672BD66ED0C46C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0FF8AF7B2BC57789004A5A63 /* Alamofire.bundle */,
+				0FF8AF782BC57785004A5A63 /* Alamofire.framework */,
 				45A3B74300E41FECDDDA561C /* Pods_APIMarvel.framework */,
 			);
 			name = Frameworks;
@@ -231,7 +241,9 @@
 			files = (
 				0FDE7E552BC13720002062DB /* ViewController.swift in Sources */,
 				0FDE7E512BC13720002062DB /* AppDelegate.swift in Sources */,
+				0FDE7E6C2BC147D7002062DB /* Cell.swift in Sources */,
 				0FDE7E532BC13720002062DB /* SceneDelegate.swift in Sources */,
+				0FDE7E6E2BC14BB3002062DB /* ConfigureAPIMarvel.swift in Sources */,
 				0FDE7E682BC13B46002062DB /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,7 +299,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -350,7 +362,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -391,7 +403,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.my.AlamofireTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.my.APIMarvel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -426,7 +438,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.my.AlamofireTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.my.APIMarvel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
