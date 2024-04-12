@@ -46,16 +46,18 @@ final class SeriesTableViewCell: UITableViewCell {
     // MARK: - Configure
 
     private func configureView() {
+        let indent: CGFloat = 10
+
         addSubview(nameSeriesLabel)
         NSLayoutConstraint.activate([
-            nameSeriesLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            nameSeriesLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10)
+            nameSeriesLabel.topAnchor.constraint(equalTo: topAnchor, constant: indent),
+            nameSeriesLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: indent)
         ])
 
         addSubview(linkLabel)
         NSLayoutConstraint.activate([
-            linkLabel.topAnchor.constraint(equalTo: nameSeriesLabel.bottomAnchor, constant: 10),
-            linkLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10)
+            linkLabel.topAnchor.constraint(equalTo: nameSeriesLabel.bottomAnchor, constant: indent),
+            linkLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: indent)
         ])
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))

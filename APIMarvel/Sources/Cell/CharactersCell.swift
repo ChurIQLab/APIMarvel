@@ -59,18 +59,21 @@ final class CharactersTableViewCell: UITableViewCell {
     // MARK: - Configure
 
     private func configureView() {
+        let indent: CGFloat = 10
+        let heightImage: CGFloat = 50
+
         addSubview(characterImage)
         NSLayoutConstraint.activate([
             characterImage.centerYAnchor.constraint(equalTo: centerYAnchor),
-            characterImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            characterImage.heightAnchor.constraint(equalToConstant: 50),
-            characterImage.widthAnchor.constraint(equalToConstant: 50)
+            characterImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: indent),
+            characterImage.heightAnchor.constraint(equalToConstant: heightImage),
+            characterImage.widthAnchor.constraint(equalTo: characterImage.heightAnchor, multiplier: 1)
         ])
 
         addSubview(nameLabel)
         NSLayoutConstraint.activate([
             nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            nameLabel.leadingAnchor.constraint(equalTo: characterImage.trailingAnchor, constant: 10),
+            nameLabel.leadingAnchor.constraint(equalTo: characterImage.trailingAnchor, constant: indent),
         ])
     }
 
