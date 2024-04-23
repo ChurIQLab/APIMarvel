@@ -5,6 +5,8 @@ final class SeriesTableViewCell: UITableViewCell {
 
     // MARK: - Properties
 
+    static let identifier = "SeriesTableViewCell"
+
     var series: Items? {
         didSet {
             guard let series else { return }
