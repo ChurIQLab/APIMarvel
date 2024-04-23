@@ -17,18 +17,20 @@ final class CharactersTableViewCell: UITableViewCell {
             let imageURL = URL(string: "\(path).\(thumbnailExtension)")
 
             if let imageURL = imageURL {
-                URLSession.shared.dataTask(with: imageURL) { data, _, _ in
-                    if let data = data {
+                AF.request(imageURL).responseData { response in
+                    switch response.result {
+                    case .success(let data):
                         DispatchQueue.main.async {
                             self.characterImage.image = UIImage(data: data)
-
                         }
-                    } else {
+                    case .failure(_):
                         DispatchQueue.main.async {
                             self.characterImage.image = UIImage(systemName: "square.and.arrow.up.trianglebadge.exclamationmark")
                         }
                     }
-                }.resume()
+                }
+            } else {
+                self.characterImage.image = UIImage(systemName: "square.and.arrow.up.trianglebadge.exclamationmark")
             }
         }
     }
