@@ -5,6 +5,8 @@ final class CharactersTableViewCell: UITableViewCell {
 
     // MARK: - Properties
 
+    static let identifier = "CharactersTableViewCell"
+
     var character: Character? {
         didSet {
             guard let character, let thumbnail = character.thumbnail else { return }

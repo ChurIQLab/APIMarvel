@@ -13,7 +13,8 @@ final class ComicsViewController: UIViewController {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(CharactersTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(CharactersTableViewCell.self,
+                           forCellReuseIdentifier: CharactersTableViewCell.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -60,7 +61,8 @@ extension ComicsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CharactersTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CharactersTableViewCell.identifier,
+                                                       for: indexPath) as? CharactersTableViewCell else {
             return UITableViewCell()
         }
         if let character = self.characters?.data?.results?[indexPath.row] {

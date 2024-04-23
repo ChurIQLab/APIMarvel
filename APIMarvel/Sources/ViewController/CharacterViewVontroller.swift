@@ -14,7 +14,8 @@ final class CharacterViewVontroller: UIViewController {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(SeriesTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(SeriesTableViewCell.self, 
+                           forCellReuseIdentifier: SeriesTableViewCell.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -62,7 +63,8 @@ extension CharacterViewVontroller: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SeriesTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SeriesTableViewCell.identifier,
+                                                       for: indexPath) as? SeriesTableViewCell else {
             return UITableViewCell()
         }
         if let series = character?.series {
