@@ -16,16 +16,19 @@ final class CharactersTableViewCell: UITableViewCell {
             let thumbnailExtension = thumbnail.thumbnailExtension
             let imageURL = URL(string: "\(path).\(thumbnailExtension)")
 
-            DispatchQueue.global().async {
-                if let imageData = try? Data(contentsOf: imageURL!) {
-                    DispatchQueue.main.async {
-                        self.characterImage.image = UIImage(data: imageData)
+            if let imageURL = imageURL {
+                URLSession.shared.dataTask(with: imageURL) { data, _, _ in
+                    if let data = data {
+                        DispatchQueue.main.async {
+                            self.characterImage.image = UIImage(data: data)
+
+                        }
+                    } else {
+                        DispatchQueue.main.async {
+                            self.characterImage.image = UIImage(systemName: "square.and.arrow.up.trianglebadge.exclamationmark")
+                        }
                     }
-                } else {
-                    DispatchQueue.main.async {
-                        self.characterImage.image = UIImage(systemName: "square.and.arrow.up.trianglebadge.exclamationmark")
-                    }
-                }
+                }.resume()
             }
         }
     }
