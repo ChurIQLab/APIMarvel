@@ -16,22 +16,26 @@ final class CharactersTableViewCell: UITableViewCell {
             let thumbnailExtension = thumbnail.thumbnailExtension
             let imageURL = URL(string: "\(path).\(thumbnailExtension)")
 
-            if let imageURL = imageURL {
-                AF.request(imageURL).responseData { response in
-                    switch response.result {
-                    case .success(let data):
-                        DispatchQueue.main.async {
-                            self.characterImage.image = UIImage(data: data)
-                        }
-                    case .failure(_):
-                        DispatchQueue.main.async {
-                            self.characterImage.image = UIImage(systemName: "square.and.arrow.up.trianglebadge.exclamationmark")
-                        }
+            guard let imageURL = imageURL else {
+                self.characterImage.image = UIImage(systemName: 
+                                                        "square.and.arrow.up.trianglebadge.exclamationmark")
+                return
+            }
+
+            AF.request(imageURL).responseData { [weak self] response in
+                switch response.result {
+                case .success(let data):
+                    DispatchQueue.main.async {
+                        self?.characterImage.image = UIImage(data: data)
+                    }
+                case .failure(_):
+                    DispatchQueue.main.async {
+                        self?.characterImage.image = UIImage(systemName:
+                                                                "square.and.arrow.up.trianglebadge.exclamationmark")
                     }
                 }
-            } else {
-                self.characterImage.image = UIImage(systemName: "square.and.arrow.up.trianglebadge.exclamationmark")
             }
+
         }
     }
 
@@ -85,7 +89,7 @@ final class CharactersTableViewCell: UITableViewCell {
     }
 
     // MARK: - Prepare
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         characterImage.image = nil
